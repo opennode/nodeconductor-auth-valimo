@@ -24,3 +24,13 @@ class AuthValimoExtension(NodeConductorExtension):
     def rest_urls():
         from .urls import register_in
         return register_in
+
+    @staticmethod
+    def celery_tasks():
+        from datetime import timedelta
+        return {
+            'valimo-auth-cleanup-auth-results': {
+                'task': 'nodeconductor.valimo_auth.cleanup_auth_results',
+                'schedule': timedelta(hours=1),
+            },
+        }

@@ -1,4 +1,7 @@
+from datetime import timedelta
 import logging
+
+from celery import shared_task
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -7,7 +10,7 @@ from rest_framework.authtoken.models import Token
 
 from nodeconductor.core import tasks
 
-from . import client
+from . import client, models
 
 
 logger = logging.getLogger(__name__)
@@ -63,3 +66,8 @@ class PollTask(tasks.Task):
             auth_result.set_canceled()
             logger.info('PKI login failed for user with civil number %s - it does not exist in NC.', civil_number)
         auth_result.save()
+
+
+@shared_task(name='nodeconductor.valimo_auth.cleanup_auth_results')
+def cleanup_auth_results():
+    models.AuthResult.objects.filter(modified__lte=timezone.now() - timedelta(days=1)).delete()

@@ -28,7 +28,6 @@ class Migration(migrations.Migration):
                 ('message', models.CharField(help_text='This message will be shown to user.', max_length=100)),
                 ('state', django_fsm.FSMField(default='Scheduled', max_length=50, choices=[('Scheduled', 'Scheduled'), ('Processing', 'Processing'), ('OK', 'OK'), ('Canceled', 'Canceled'), ('Erred', 'Erred')])),
                 ('details', models.CharField(help_text='Cancellation details.', max_length=255, blank=True)),
-                ('visible', models.BooleanField(default=True)),
                 ('backend_transaction_id', models.CharField(max_length=100, blank=True)),
                 ('user', models.ForeignKey(related_name='auth_valimo_results', to=settings.AUTH_USER_MODEL, null=True)),
             ],

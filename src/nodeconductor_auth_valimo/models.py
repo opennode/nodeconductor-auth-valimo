@@ -23,7 +23,6 @@ class AuthResult(core_models.UuidMixin, core_models.ErrorMessageMixin, TimeStamp
     message = models.CharField(max_length=100, help_text='This message will be shown to user.')
     state = FSMField(choices=States.CHOICES, default=States.SCHEDULED)
     details = models.CharField(max_length=255, blank=True, help_text='Cancellation details.')
-    visible = models.BooleanField(default=True)
     backend_transaction_id = models.CharField(max_length=100, blank=True)
 
     # for consistency with other models with state

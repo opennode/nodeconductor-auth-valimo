@@ -10,14 +10,8 @@ Guide
    :maxdepth: 1
 
    installation
+   workflow
 
-API
----
-
-.. toctree::
-   :maxdepth: 1
-
-   api
 
 Endpoints
 ---------

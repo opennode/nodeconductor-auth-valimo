@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
-from rest_framework import viewsets, mixins, response
+from django.http import Http404
+from rest_framework import viewsets, mixins, response, decorators
 
 from nodeconductor.core import mixins as core_mixins
 
@@ -11,7 +12,7 @@ class AuthResultViewSet(core_mixins.CreateExecutorMixin,
                         mixins.CreateModelMixin,
                         mixins.RetrieveModelMixin,
                         viewsets.GenericViewSet):
-    queryset = models.AuthResult.objects.filter(visible=True)
+    queryset = models.AuthResult.objects.all()
     serializer_class = serializers.AuthResultSerializer
     permission_classes = ()
     lookup_field = 'uuid'
@@ -36,11 +37,12 @@ class AuthResultViewSet(core_mixins.CreateExecutorMixin,
         """
         return super(AuthResultViewSet, self).create(request, *args, **kwargs)
 
-    def retrieve(self, request, *args, **kwargs):
+    @decorators.list_route(methods=['POST'])
+    def result(self, request, *args, **kwargs):
         """
-        To get PKI login status and details - issue get request against /api/auth-valimo/<uuid>/
+        To get PKI login status and details - issue post request against /api/auth-valimo/result/
+        with uuid in parameters.
 
-        Warning: success result with token will be returned only once.
         Possible states:
          - Scheduled - login process is scheduled
          - Processing - login is in progress
@@ -60,12 +62,9 @@ class AuthResultViewSet(core_mixins.CreateExecutorMixin,
                 "details": "User cancel."
             }
         """
-        auth_result = self.get_object()
-
-        # To prevent brute-force token search - show valid response only once.
-        if auth_result.state == models.AuthResult.States.OK:
-            auth_result.visible = False
-            auth_result.save()
-
+        try:
+            auth_result = models.AuthResult.objects.get(uuid=request.data.get('uuid'))
+        except models.AuthResult.DoesNotExist:
+            raise Http404
         serializer = self.get_serializer(auth_result)
         return response.Response(serializer.data)
