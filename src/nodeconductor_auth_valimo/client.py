@@ -26,7 +26,6 @@ class RequestError(ClientError):
     def __init__(self, message, response):
         super(RequestError, self).__init__(message)
         self.response = response
-        print message
 
 
 class UnknownStatusError(ResponseParseError):
