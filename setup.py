@@ -9,6 +9,7 @@ dev_requires = [
 
 install_requires = [
     'nodeconductor>=0.96.0',
+    'lxml>=3.2',
 ]
 
 
