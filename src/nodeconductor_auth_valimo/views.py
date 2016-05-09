@@ -10,7 +10,6 @@ from . import models, serializers, executors
 
 class AuthResultViewSet(core_mixins.CreateExecutorMixin,
                         mixins.CreateModelMixin,
-                        mixins.RetrieveModelMixin,
                         viewsets.GenericViewSet):
     queryset = models.AuthResult.objects.all()
     serializer_class = serializers.AuthResultSerializer

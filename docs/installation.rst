@@ -18,7 +18,7 @@ Installation
 
 * Define settings Valimo parameters in NodeConductor settings:
 
-  .. code_block:: python
+  .. code-block:: python
 
     NODECONDUCTOR_VALIMO_AUTH = {
         'URL': '<Valimo URL, example: https://example.com>',
@@ -30,3 +30,17 @@ Installation
         'key_path': '<path to file with SSL key>',
         'message_prefix': '<prefix of message that will be send to user, default "Login code:">'
     }
+
+  Example:
+
+  .. code-block:: python
+
+    NODECONCUTOR_AUTH_VALIMO.update({
+        'URL': 'https://example.com/',
+        'AP_ID': 'https://example/MobilePKI_AP',
+        'AP_PWD': 'example_password',
+        'DNSName': 'example',
+        'SignatureProfile': 'https://example.com/MobilePKI',
+        'cert_path': '/home/user/path/to/cert/example.cer',
+        'key_path': '/home/user/path/to/key/example.key',
+    })
