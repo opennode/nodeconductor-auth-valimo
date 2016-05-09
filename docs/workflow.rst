@@ -1,14 +1,19 @@
 Workflow
 --------
 
-It is impossible to create new user via auth-valimo endpoint - only login as existing.
+Auth-valimo endpoint allows to get NodeConductor authentication token using mobile PKI from Valimo.
+Please note that only authentication is supported - no auto-registration is currently available. 
 
-* To start login process - issue POST request against **/api/auth-valimo/** endpoint with phone.
+* To initiate a login process, please issue POST request against **/api/auth-valimo/** endpoint
+  providing phone number as an input.
 
-* On success request NodeConductor will create AuthResult object and start login process.
-  AuthResult will contain field "message" that will be send to user via mobile.
+* On that request NodeConductor will create a result object (**AuthResult**) and request authentication
+  from the Valimo PKI service. The result object contains all the metadata about the request, including
+  field "message" - text that is sent to the user via SMS. This text is typically shown to the user
+  for validation purposes.
 
-* To get login process status - issue post request against **/api/auth-valimo/result/** with uuid in request data.
-  Check endpoint docs for more details.
-
-* On success login endpoint **/api/auth-valimo/result/** will provide auth token.
+* The client is expected to poll for the authetnication process by issuing POST requests
+  against **/api/auth-valimo/result/** with UUID in the payload of a request. Please see details in the API
+  documentation.
+ 
+* After a successful login, endpoint **/api/auth-valimo/result/** will contain authentication token.
