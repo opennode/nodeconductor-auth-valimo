@@ -81,6 +81,10 @@ class Request(object):
         return d.strftime('%Y-%m-%dT%H:%M:%S.000Z')
 
     @classmethod
+    def _format_transaction_id(cls, transaction_id):
+        return ('_' + transaction_id)[:32]  # such formation is required by server.
+
+    @classmethod
     def _get_url(cls):
         return urlparse.urljoin(cls.settings['URL'], cls.url)
 
@@ -136,7 +140,7 @@ class SignatureRequest(Request):
     def execute(cls, transaction_id, phone, message):
         kwargs = {
             'MessagingMode': 'asynchClientServer',
-            'AP_TransID': transaction_id,
+            'AP_TransID': cls._format_transaction_id(transaction_id),
             'MSISDN': phone,
             'DataToBeSigned': '%s %s' % (cls.settings['message_prefix'], message),
             'SignatureProfile': cls.settings['SignatureProfile']
@@ -221,7 +225,7 @@ class StatusRequest(Request):
     @classmethod
     def execute(cls, transaction_id, backend_transaction_id):
         kwargs = {
-            'AP_TransID': transaction_id,
+            'AP_TransID': cls._format_transaction_id(transaction_id),
             'MSSP_TransID': backend_transaction_id,
         }
         try:
