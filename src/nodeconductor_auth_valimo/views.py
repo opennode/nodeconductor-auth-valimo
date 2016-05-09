@@ -20,7 +20,7 @@ class AuthResultViewSet(core_mixins.CreateExecutorMixin,
 
     def create(self, request, *args, **kwargs):
         """
-        To start PKI login process - issue post request with users phone and message.
+        To start PKI login process - issue post request with users phone.
         Example of a valid request:
 
         .. code-block:: http
@@ -32,7 +32,6 @@ class AuthResultViewSet(core_mixins.CreateExecutorMixin,
 
             {
                 "phone": "1234567890",
-                "message": "Login to example.com"
             }
         """
         return super(AuthResultViewSet, self).create(request, *args, **kwargs)
@@ -54,9 +53,9 @@ class AuthResultViewSet(core_mixins.CreateExecutorMixin,
         .. code-block:: javascript
 
             {
-                "url": "http://example.com/api/auth-valimo/e42473f39c844333a80107e139a4dd06/",
                 "uuid": "e42473f39c844333a80107e139a4dd06",
                 "token": null,
+                "message": "1234",
                 "state": "Canceled",
                 "error_message": "",
                 "details": "User cancel."

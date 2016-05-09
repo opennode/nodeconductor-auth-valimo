@@ -138,7 +138,7 @@ class SignatureRequest(Request):
             'MessagingMode': 'asynchClientServer',
             'AP_TransID': transaction_id,
             'MSISDN': phone,
-            'DataToBeSigned': message,
+            'DataToBeSigned': '%s %s' % (cls.settings['message_prefix'], message),
             'SignatureProfile': cls.settings['SignatureProfile']
         }
         return super(SignatureRequest, cls).execute(**kwargs)

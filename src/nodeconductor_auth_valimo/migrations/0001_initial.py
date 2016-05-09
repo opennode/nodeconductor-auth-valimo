@@ -2,11 +2,12 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import model_utils.fields
+import nodeconductor_auth_valimo.models
 import django.utils.timezone
 from django.conf import settings
 import django_fsm
 import uuidfield.fields
+import model_utils.fields
 
 
 class Migration(migrations.Migration):
@@ -25,7 +26,7 @@ class Migration(migrations.Migration):
                 ('uuid', uuidfield.fields.UUIDField(unique=True, max_length=32, editable=False, blank=True)),
                 ('error_message', models.TextField(blank=True)),
                 ('phone', models.CharField(max_length=30)),
-                ('message', models.CharField(help_text='This message will be shown to user.', max_length=100)),
+                ('message', models.CharField(default=nodeconductor_auth_valimo.models._default_message, help_text='This message will be shown to user.', max_length=4)),
                 ('state', django_fsm.FSMField(default='Scheduled', max_length=50, choices=[('Scheduled', 'Scheduled'), ('Processing', 'Processing'), ('OK', 'OK'), ('Canceled', 'Canceled'), ('Erred', 'Erred')])),
                 ('details', models.CharField(help_text='Cancellation details.', max_length=255, blank=True)),
                 ('backend_transaction_id', models.CharField(max_length=100, blank=True)),

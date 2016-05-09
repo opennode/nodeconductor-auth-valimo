@@ -28,4 +28,5 @@ Installation
         'SignatureProfile': '<Signature profile to be used in the transaction processing>'
         'cert_path': '<path to file with SSL certificate>',
         'key_path': '<path to file with SSL key>',
+        'message_prefix': '<prefix of message that will be send to user, default "Login code:">'
     }

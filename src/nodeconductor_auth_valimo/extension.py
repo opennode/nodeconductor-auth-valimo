@@ -14,6 +14,7 @@ class AuthValimoExtension(NodeConductorExtension):
             'SignatureProfile': None,
             'cert_path': None,
             'key_path': None,
+            'message_prefix': 'Login code:',
         }
 
     @staticmethod
