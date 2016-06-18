@@ -9,7 +9,7 @@ License: Copyright 2016 OpenNode LLC.  All rights reserved.
 Url: http://nodeconductor.com
 Source0: %{name}-%{version}.tar.gz
 
-Requires: nodeconductor >= 0.96.0
+Requires: nodeconductor >= 0.101.2
 Requires: python-lxml >= 3.2.0
 
 BuildArch: noarch
