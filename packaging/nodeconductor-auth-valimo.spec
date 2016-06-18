@@ -1,3 +1,5 @@
+%define __conf_dir %{_sysconfdir}/nodeconductor/valimo
+
 Name: nodeconductor-auth-valimo
 Summary: NodeConductor Valimo authentication plugin
 Group: Development/Libraries
@@ -27,6 +29,9 @@ python setup.py build
 %install
 rm -rf %{buildroot}
 python setup.py install --single-version-externally-managed -O1 --root=%{buildroot} --record=INSTALLED_FILES
+
+mkdir -p %{buildroot}%{__conf_dir}
+echo "%{__conf_dir}" >> INSTALLED_FILES
 
 %clean
 rm -rf %{buildroot}
