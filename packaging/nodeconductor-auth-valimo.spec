@@ -3,7 +3,7 @@
 Name: nodeconductor-auth-valimo
 Summary: NodeConductor Valimo authentication plugin
 Group: Development/Libraries
-Version: 0.1.0
+Version: 0.1.1
 Release: 1.el7
 License: Copyright 2016 OpenNode LLC.  All rights reserved.
 Url: http://nodeconductor.com
@@ -40,6 +40,9 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 
 %changelog
+* Mon Jul 25 2016 Jenkins <jenkins@opennodecloud.com> - 0.1.1-1.el7
+- New upstream release
+
 * Mon Jul 25 2016 Jenkins <jenkins@opennodecloud.com> - 0.1.0-1.el7
 - New upstream release
 
