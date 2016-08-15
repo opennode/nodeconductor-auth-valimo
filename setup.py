@@ -15,7 +15,7 @@ install_requires = [
 
 setup(
     name='nodeconductor-auth-valimo',
-    version='0.1.2',
+    version='0.1.3',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='http://nodeconductor.com',
