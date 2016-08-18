@@ -24,7 +24,7 @@ Endpoints
 License
 -------
 
-NodeConductor AuthValimo plugin is open-source under Apache v2 license.
+NodeConductor AuthValimo plugin is open-source under MIT license.
 
 
 Indices and tables
