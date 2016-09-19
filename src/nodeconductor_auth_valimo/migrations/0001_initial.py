@@ -6,7 +6,7 @@ import nodeconductor_auth_valimo.models
 import django.utils.timezone
 from django.conf import settings
 import django_fsm
-import uuidfield.fields
+import nodeconductor.core.fields
 import model_utils.fields
 
 
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('created', model_utils.fields.AutoCreatedField(default=django.utils.timezone.now, verbose_name='created', editable=False)),
                 ('modified', model_utils.fields.AutoLastModifiedField(default=django.utils.timezone.now, verbose_name='modified', editable=False)),
-                ('uuid', uuidfield.fields.UUIDField(unique=True, max_length=32, editable=False, blank=True)),
+                ('uuid', nodeconductor.core.fields.UUIDField()),
                 ('error_message', models.TextField(blank=True)),
                 ('phone', models.CharField(max_length=30)),
                 ('message', models.CharField(default=nodeconductor_auth_valimo.models._default_message, help_text='This message will be shown to user.', max_length=4)),
