@@ -6,7 +6,7 @@ from nodeconductor.core import NodeConductorExtension
 class AuthValimoExtension(NodeConductorExtension):
 
     class Settings:
-        NODECONCUTOR_AUTH_VALIMO = {
+        WALDUR_AUTH_VALIMO = {
             'URL': None,
             'AP_ID': None,
             'AP_PWD': None,
@@ -19,7 +19,7 @@ class AuthValimoExtension(NodeConductorExtension):
 
     @staticmethod
     def django_app():
-        return 'nodeconductor_auth_valimo'
+        return 'waldur_auth_valimo'
 
     @staticmethod
     def rest_urls():
@@ -31,7 +31,7 @@ class AuthValimoExtension(NodeConductorExtension):
         from datetime import timedelta
         return {
             'valimo-auth-cleanup-auth-results': {
-                'task': 'nodeconductor.valimo_auth.cleanup_auth_results',
+                'task': 'waldur_auth_valimo.cleanup_auth_results',
                 'schedule': timedelta(hours=1),
             },
         }

@@ -51,7 +51,7 @@ copyright = u'2016, OpenNode'
 # built documents.
 #
 # The short X.Y version.
-from nodeconductor_auth_valimo import __version__
+from waldur_auth_valimo import __version__
 
 version = __version__
 # The full version, including alpha/beta/rc tags.
@@ -269,5 +269,5 @@ from django.core.wsgi import get_wsgi_application
 get_wsgi_application()
 
 from nodeconductor.core.management.commands.drfdocs import Command
-Command().handle('nodeconductor_auth_valimo', path='docs/drfapi')
+Command().handle('waldur_auth_valimo', path='docs/drfapi')
 

@@ -68,6 +68,6 @@ class PollTask(tasks.Task):
         auth_result.save()
 
 
-@shared_task(name='nodeconductor.valimo_auth.cleanup_auth_results')
+@shared_task(name='waldur_auth_valimo.cleanup_auth_results')
 def cleanup_auth_results():
     models.AuthResult.objects.filter(modified__lte=timezone.now() - timedelta(days=7)).delete()

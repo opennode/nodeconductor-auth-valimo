@@ -48,7 +48,7 @@ class Request(object):
     url = NotImplemented
     template = NotImplemented
     response_class = NotImplemented
-    settings = getattr(django_settings, 'NODECONCUTOR_AUTH_VALIMO', {})
+    settings = getattr(django_settings, 'WALDUR_AUTH_VALIMO', {})
 
     @classmethod
     def execute(cls, **kwargs):

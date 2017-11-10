@@ -1,26 +1,26 @@
 Installation
 ------------
 
-* `Install NodeConductor <http://nodeconductor.readthedocs.org/en/latest/guide/intro.html#installation-from-source>`_
+* `Install Waldur <http://nodeconductor.readthedocs.org/en/latest/guide/intro.html#installation-from-source>`_
 
-* Clone NodeConductor ValimoAuth repository
+* Clone Waldur Auth Valimo repository
 
   .. code-block:: bash
 
     git clone https://github.com/opennode/nodeconductor-valimo-auth.git
 
-* Install NodeConductor ValimoAuth into NodeConductor virtual environment
+* Install Waldur Auth Valimo into Waldur virtual environment
 
   .. code-block:: bash
 
     cd /path/to/nodeconductor-valimo-auth/
     python setup.py install
 
-* Define settings Valimo parameters in NodeConductor settings:
+* Define settings Valimo parameters in Waldur settings:
 
   .. code-block:: python
 
-    NODECONDUCTOR_VALIMO_AUTH = {
+    WALDUR_AUTH_VALIMO = {
         'URL': '<Valimo URL, example: https://example.com>',
         'AP_ID': '<Application provider ID>',
         'AP_PWD': '<Application provider password>',
@@ -35,7 +35,7 @@ Installation
 
   .. code-block:: python
 
-    NODECONCUTOR_AUTH_VALIMO.update({
+    WALDUR_AUTH_VALIMO.update({
         'URL': 'https://example.com/',
         'AP_ID': 'https://example/MobilePKI_AP',
         'AP_PWD': 'example_password',

@@ -13,13 +13,14 @@ install_requires = [
 
 
 setup(
-    name='nodeconductor-auth-valimo',
+    name='waldur-auth-valimo',
     version='0.2.0',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
-    url='http://nodeconductor.com',
+    url='http://waldur.com',
     description='Mobile phone authentication using Valimo PKI.',
     long_description=open('README.rst').read(),
+    license='MIT',
     package_dir={'': 'src'},
     packages=find_packages('src', exclude=['*.tests', '*.tests.*', 'tests.*', 'tests']),
     install_requires=install_requires,
@@ -29,7 +30,7 @@ setup(
     },
     entry_points={
         'nodeconductor_extensions': (
-            'nodeconductor_auth_valimo = nodeconductor_auth_valimo.extension:AuthValimoExtension',
+            'waldur_auth_valimo = waldur_auth_valimo.extension:AuthValimoExtension',
         ),
     },
     include_package_data=True,
