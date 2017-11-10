@@ -1,5 +1,5 @@
-Welcome to NodeConductor AuthValimo plugin's documentation!
-================================================================
+Welcome to Waldur Auth Valimo plugin's documentation!
+=====================================================
 
 Mobile phone authentication using Valimo PKI.
 
@@ -24,7 +24,7 @@ Endpoints
 License
 -------
 
-NodeConductor AuthValimo plugin is open-source under MIT license.
+Waldur Auth Valimo plugin is open-source under MIT license.
 
 
 Indices and tables
@@ -32,4 +32,3 @@ Indices and tables
 
 * :ref:`genindex`
 * :ref:`search`
-
