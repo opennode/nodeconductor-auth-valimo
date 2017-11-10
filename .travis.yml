@@ -16,4 +16,4 @@ deploy:
     secure: Ek4aPFWmAjxsC/MP5Sg8poyvnQ9/TdoSg018cexswp3IDSyxVzyjlnsHWadQR/h1g58VN+zeKNcnDmmaq9tfw8J9fovVV9XCMIu38WrU5PfVuzWEASjueHhEvWU8To2d/W9+xfFkzwIxd/IGDiFUVpz1Lz2hdqELEEvmPEklAP7YmzqoW3meBaxGEyE1CFhvGUTZ7sob6zre0VOk6UZq0C1EqNctXZLJ/Nt/mPcY5Es8hoisLjB6cxDYJmCVHQ0VLDFKdVlutOi0AFkRS7Mqn/y/2hQTZDsI9O4flm5yJ/+tjKZ7VHDY1N5+6/XsHysBxmg3/aMsmhXy6u8jIRVOkFasO89uMa9iU+W02ly8CSQsy0c0SJqXDAmiy8eiNbDNi4x6LF86SvDzMsYFGvnCarpeY7Esh/YhimzZycEg1nqBESxmCnHWjFDzoTSqz0IvA3teayvEOlzcPk1jhsE8pQ9IGOQCL4qMjL3Rsw4BB//Bw6+aJ/56G9OU4vQ/8TfWkYqvGjKYaxQYr3bHCmQ6YUfLITyBHA83QdGa4Jg0oHdFlWKpNtIXqbD6Y9UeQadhhcf9eh59FxJgSJ3aKV289uOD7MJhkizr1NYCI4ZcMaA5u76g8CBPV6lFk+f6qfewaXeJ0tdfpZhUKUtVg2lUT3vM20+0W+6x4gJVQg24uQY=
   on:
     tags: true
-    repo: opennode/nodeconductor-auth-valimo
+    repo: opennode/waldur-auth-valimo
