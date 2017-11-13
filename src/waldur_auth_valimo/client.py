@@ -3,7 +3,7 @@ import urlparse
 
 from django.conf import settings as django_settings
 from django.utils import timezone
-import lxml.etree
+import lxml.etree  # nosec
 import requests
 
 
@@ -36,7 +36,7 @@ class Response(object):
     ns_namespace = 'http://uri.etsi.org/TS102204/v1.1.2#'
 
     def __init__(self, content):
-        etree = lxml.etree.fromstring(content)
+        etree = lxml.etree.fromstring(content)  # nosec
         self.init_response_attributes(etree)
 
     def init_response_attributes(self, etree):
@@ -48,7 +48,7 @@ class Request(object):
     url = NotImplemented
     template = NotImplemented
     response_class = NotImplemented
-    settings = getattr(django_settings, 'NODECONCUTOR_AUTH_VALIMO', {})
+    settings = getattr(django_settings, 'WALDUR_AUTH_VALIMO', {})
 
     @classmethod
     def execute(cls, **kwargs):
@@ -67,7 +67,7 @@ class Request(object):
         cert = (cls.settings['cert_path'], cls.settings['key_path'])
         # TODO: add verification
         logger.debug('Executing POST request to %s with data:\n %s \nheaders: %s', url, data, headers)
-        response = requests.post(url, data=data, headers=headers, cert=cert, verify=False)
+        response = requests.post(url, data=data, headers=headers, cert=cert, verify=cls.settings['verify_ssl'])
         if response.ok:
             return cls.response_class(response.content)
         else:

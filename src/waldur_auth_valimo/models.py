@@ -11,7 +11,7 @@ from nodeconductor.core import models as core_models
 
 
 def _default_message():
-    return '{0:4.0f}'.format(randint(0, 9999)).replace(' ', '0')
+    return '{0:4.0f}'.format(randint(0, 9999)).replace(' ', '0')  # nosec
 
 
 class AuthResult(core_models.UuidMixin, core_models.ErrorMessageMixin, TimeStampedModel):
