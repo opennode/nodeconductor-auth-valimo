@@ -41,5 +41,5 @@ rm -rf %{buildroot}
 %{python_sitelib}/*
 
 %changelog
-* Fri Nov 11 2017 Victor Mireyev <victor@opennodecloud.com> - 0.2.0-1.el7
+* Mon Nov 13 2017 Victor Mireyev <victor@opennodecloud.com> - 0.2.0-1.el7
 - Rename nodeconductor-auth-valimo package to waldur-auth-valimo.
