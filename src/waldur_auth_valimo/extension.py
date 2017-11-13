@@ -15,6 +15,7 @@ class AuthValimoExtension(NodeConductorExtension):
             'cert_path': None,
             'key_path': None,
             'message_prefix': 'Login code:',
+            'verify_ssl': False,
         }
 
     @staticmethod
