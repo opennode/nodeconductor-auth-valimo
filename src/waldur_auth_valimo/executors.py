@@ -1,6 +1,6 @@
 from celery import chain
 
-from nodeconductor.core import executors
+from waldur_core.core import executors
 
 from .tasks import AuthTask, PollTask
 

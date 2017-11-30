@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.http import Http404
 from rest_framework import viewsets, mixins, response, decorators
 
-from nodeconductor.core import mixins as core_mixins
+from waldur_core.core import mixins as core_mixins
 
 from . import models, serializers, executors
 

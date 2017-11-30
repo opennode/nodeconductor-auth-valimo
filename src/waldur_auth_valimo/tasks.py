@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 from django.utils import timezone
 from rest_framework.authtoken.models import Token
 
-from nodeconductor.core import tasks
+from waldur_core.core import tasks
 
 from . import client, models
 
@@ -51,7 +51,7 @@ class PollTask(tasks.Task):
         try:
             user = User.objects.get(civil_number=civil_number)
             token, _ = Token.objects.get_or_create(user=user)
-            lifetime = settings.NODECONDUCTOR.get('TOKEN_LIFETIME', timezone.timedelta(hours=1))
+            lifetime = settings.WALDUR_CORE.get('TOKEN_LIFETIME', timezone.timedelta(hours=1))
             if token.created < timezone.now() - lifetime:
                 token.delete()
                 token = Token.objects.create(user=user)
