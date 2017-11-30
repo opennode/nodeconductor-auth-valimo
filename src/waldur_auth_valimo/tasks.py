@@ -64,7 +64,7 @@ class PollTask(tasks.Task):
         except User.DoesNotExist:
             auth_result.details = 'User is not registered.'
             auth_result.set_canceled()
-            logger.info('PKI login failed for user with civil number %s - user record does not exist in NodeConductor.', civil_number)
+            logger.info('PKI login failed for user with civil number %s - user record does not exist in Waldur.', civil_number)
         auth_result.save()
 
 

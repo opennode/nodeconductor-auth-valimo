@@ -7,13 +7,13 @@ Installation
 
   .. code-block:: bash
 
-    git clone https://github.com/opennode/nodeconductor-valimo-auth.git
+    git clone https://github.com/opennode/waldur-auth-valimo.git
 
 * Install Waldur Auth Valimo into Waldur virtual environment
 
   .. code-block:: bash
 
-    cd /path/to/nodeconductor-valimo-auth/
+    cd /path/to/waldur-auth-valimo/
     python setup.py install
 
 * Define settings Valimo parameters in Waldur settings:
