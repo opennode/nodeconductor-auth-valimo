@@ -7,14 +7,14 @@ dev_requires = [
 ]
 
 install_requires = [
-    'nodeconductor>=0.142.0',
+    'waldur-core>=0.151.0',
     'lxml>=3.2.0',
 ]
 
 
 setup(
     name='waldur-auth-valimo',
-    version='0.3.0',
+    version='0.3.1',
     author='OpenNode Team',
     author_email='info@opennodecloud.com',
     url='http://waldur.com',
@@ -29,7 +29,7 @@ setup(
         'dev': dev_requires,
     },
     entry_points={
-        'nodeconductor_extensions': (
+        'waldur_extensions': (
             'waldur_auth_valimo = waldur_auth_valimo.extension:AuthValimoExtension',
         ),
     },

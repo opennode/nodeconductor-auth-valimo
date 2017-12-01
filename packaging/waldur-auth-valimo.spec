@@ -3,13 +3,13 @@
 Name: waldur-auth-valimo
 Summary: Waldur Valimo authentication plugin
 Group: Development/Libraries
-Version: 0.3.0
+Version: 0.3.1
 Release: 1.el7
 License: MIT
 Url: http://waldur.com
 Source0: %{name}-%{version}.tar.gz
 
-Requires: waldur-core >= 0.142.0
+Requires: waldur-core >= 0.151.0
 Requires: python-lxml >= 3.2.0
 
 BuildArch: noarch
@@ -41,6 +41,9 @@ rm -rf %{buildroot}
 %{python_sitelib}/*
 
 %changelog
+* Fri Dec 1 2017 Jenkins <jenkins@opennodecloud.com> - 0.3.1-1.el7
+- New upstream release
+
 * Mon Nov 13 2017 Jenkins <jenkins@opennodecloud.com> - 0.3.0-1.el7
 - New upstream release
 
