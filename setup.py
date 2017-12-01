@@ -7,7 +7,7 @@ dev_requires = [
 ]
 
 install_requires = [
-    'waldur_core>=0.142.0',
+    'waldur-core>=0.151.0',
     'lxml>=3.2.0',
 ]
 
