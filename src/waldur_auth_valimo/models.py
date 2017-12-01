@@ -7,7 +7,7 @@ from django.db import models
 from django_fsm import FSMField, transition
 from model_utils.models import TimeStampedModel
 
-from nodeconductor.core import models as core_models
+from waldur_core.core import models as core_models
 
 
 def _default_message():

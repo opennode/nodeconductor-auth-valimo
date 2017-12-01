@@ -1,9 +1,9 @@
 from __future__ import unicode_literals
 
-from nodeconductor.core import NodeConductorExtension
+from waldur_core.core import WaldurExtension
 
 
-class AuthValimoExtension(NodeConductorExtension):
+class AuthValimoExtension(WaldurExtension):
 
     class Settings:
         WALDUR_AUTH_VALIMO = {
