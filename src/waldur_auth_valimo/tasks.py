@@ -3,12 +3,11 @@ import logging
 
 from celery import shared_task
 
-from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.utils import timezone
-from rest_framework.authtoken.models import Token
 
 from waldur_core.core import tasks
+from waldur_core.core import views
 
 from . import client, models
 
@@ -28,7 +27,7 @@ class AuthTask(tasks.StateTransitionTask):
         auth_result.save(update_fields=['backend_transaction_id'])
 
 
-class PollTask(tasks.Task):
+class PollTask(views.RefreshTokenMixin, tasks.Task):
     max_retries = 25
     default_retry_delay = 12
 
@@ -50,14 +49,7 @@ class PollTask(tasks.Task):
         User = get_user_model()
         try:
             user = User.objects.get(civil_number=civil_number)
-            token, _ = Token.objects.get_or_create(user=user)
-            lifetime = settings.WALDUR_CORE.get('TOKEN_LIFETIME', timezone.timedelta(hours=1))
-            if token.created < timezone.now() - lifetime:
-                token.delete()
-                token = Token.objects.create(user=user)
-            else:
-                token.created = timezone.now()
-                token.save()
+            self.refresh_token(user)
             auth_result.user = user
             auth_result.set_ok()
             logger.info('PKI login was successfully done for user %s.', user.username)
