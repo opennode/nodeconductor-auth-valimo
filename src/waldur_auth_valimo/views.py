@@ -4,8 +4,12 @@ from django.http import Http404
 from rest_framework import viewsets, mixins, response, decorators
 
 from waldur_core.core import mixins as core_mixins
+from waldur_core.core.views import validate_authentication_method
 
 from . import models, serializers, executors
+
+
+validate_valimo = validate_authentication_method('VALIMO')
 
 
 class AuthResultViewSet(core_mixins.CreateExecutorMixin,
@@ -17,6 +21,7 @@ class AuthResultViewSet(core_mixins.CreateExecutorMixin,
     lookup_field = 'uuid'
     create_executor = executors.AuthExecutor
 
+    @validate_valimo
     def create(self, request, *args, **kwargs):
         """
         To start PKI login process - issue post request with users phone.
@@ -35,6 +40,7 @@ class AuthResultViewSet(core_mixins.CreateExecutorMixin,
         """
         return super(AuthResultViewSet, self).create(request, *args, **kwargs)
 
+    @validate_valimo
     @decorators.list_route(methods=['POST'])
     def result(self, request, *args, **kwargs):
         """
