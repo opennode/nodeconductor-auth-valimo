@@ -20,6 +20,10 @@ class AuthValimoExtension(WaldurExtension):
         }
 
     @staticmethod
+    def get_public_settings():
+        return ['LABEL']
+
+    @staticmethod
     def django_app():
         return 'waldur_auth_valimo'
 
