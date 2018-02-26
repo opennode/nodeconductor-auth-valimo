@@ -3,7 +3,7 @@
 Name: waldur-auth-valimo
 Summary: Waldur Valimo authentication plugin
 Group: Development/Libraries
-Version: 0.4.0
+Version: 0.4.1
 Release: 1.el7
 License: MIT
 Url: http://waldur.com
@@ -41,6 +41,9 @@ rm -rf %{buildroot}
 %{python_sitelib}/*
 
 %changelog
+* Mon Feb 26 2018 Jenkins <jenkins@opennodecloud.com> - 0.4.1-1.el7
+- New upstream release
+
 * Sat Feb 17 2018 Jenkins <jenkins@opennodecloud.com> - 0.4.0-1.el7
 - New upstream release
 
