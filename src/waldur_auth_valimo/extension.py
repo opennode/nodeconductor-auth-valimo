@@ -17,11 +17,12 @@ class AuthValimoExtension(WaldurExtension):
             'message_prefix': 'Login code:',
             'verify_ssl': False,
             'LABEL': 'Mobile ID',
+            'MOBILE_PREFIX': '+372',
         }
 
     @staticmethod
     def get_public_settings():
-        return ['LABEL']
+        return ['LABEL', 'MOBILE_PREFIX']
 
     @staticmethod
     def django_app():
